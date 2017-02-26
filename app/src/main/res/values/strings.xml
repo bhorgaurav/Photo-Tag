@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Photo Tag</string>
+    <string name="enter_caption">Enter a caption!</string>
+    <string name="click_save_to_proceed">Image captured!\nClick save to proceed.</string>
+    <string name="save_image">Save Image</string>
+    <string name="caption">Caption</string>
+</resources>
