@@ -1,6 +1,8 @@
 package edu.csulb.android.assignment2;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Environment;
 import android.provider.MediaStore;
@@ -30,6 +32,7 @@ public class AddPhotoActivity extends AppCompatActivity {
 
     private EditText editTextCaption;
     private TextView textViewMessage;
+    private ImageButton buttonTakePhoto;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +43,7 @@ public class AddPhotoActivity extends AppCompatActivity {
         textViewMessage = (TextView) findViewById(R.id.textview_image_captured);
         textViewMessage.setVisibility(View.INVISIBLE);
 
-        ImageButton buttonTakePhoto = (ImageButton) findViewById(R.id.imagebutton_take_photo);
+        buttonTakePhoto = (ImageButton) findViewById(R.id.imagebutton_take_photo);
         buttonTakePhoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -78,6 +81,11 @@ public class AddPhotoActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
             textViewMessage.setVisibility(View.VISIBLE);
+
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inSampleSize = 8;  // Experiment with different
+            Bitmap b = BitmapFactory.decodeFile(mCurrentPhotoPath, options);
+            buttonTakePhoto.setImageBitmap(b);
         }
     }
 
