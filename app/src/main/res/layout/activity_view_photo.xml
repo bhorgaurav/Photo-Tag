@@ -18,9 +18,11 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="50dp"
-        android:background="#22222233"
+        android:background="#ca161616"
         android:gravity="center"
         android:padding="5dp"
-        android:text="@string/caption" />
+        android:text="@string/caption"
+        android:textColor="@android:color/white"
+        android:textStyle="bold" />
 
 </RelativeLayout>
